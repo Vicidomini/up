@@ -1,0 +1,37 @@
+{
+    "name": "Up",
+    "version": "1.0.0",
+    "description": "Chat history recall.",
+    "manifest_version": 3,
+    "author": "Zay",
+    "permissions": [
+        "activeTab",
+        "storage"
+    ],
+    "web_accessible_resources": [ {
+            "matches": [ "<all_urls>" ],
+            "resources": [ "js/recall.js", "js/filter.js" ]
+        } ],
+    "icons": {
+        "16": "images/16x16.png",
+        "48": "images/48x48.png"
+    },
+    "action": {
+        "default_title": "Chat Recall",
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": [ "*://*.youtube.com/live_chat*" ],
+            "js": [ "js/cscript.js" ],
+            "all_frames": true
+        }, {
+            "matches": [ "*://www.twitch.tv/*" ],
+            "js": [ "js/cscript.js" ],
+            "all_frames": true
+        }, {
+            "matches": [ "*://chat.openai.com/*" ],
+            "js": [ "js/cscript.js" ]
+        }
+    ]
+}

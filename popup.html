@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Up</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="initialwidth"></div>
+    <div class="topbar">
+        <img src="images/48x48.png" alt="Up Logo" id="toplogo">
+    </div>
+    <div class="content" id="page1">
+        <div class="section">
+            <hr>
+            <h1>Saved</h1>
+            <hr>
+        </div>
+        <ul id="pinned" class="list" style="--clr: 141, 110, 200"></ul>
+        <div class="section">
+            <hr>
+            <h1>New</h1>
+            <hr>
+        </div>
+        <ul id="entries" class="list" style="--clr: 0, 0, 0"></ul>
+    </div>
+    <div class="content" id="page2">
+        <div class="section">
+            <hr>
+            <h1>Filter</h1>
+            <hr>
+        </div>
+        <ul id="filter" class="list" style="--clr: 0, 0, 0"></ul>
+    </div>
+    <div class="content" id="page3">
+        <div class="section">
+            <hr>
+            <h1>Settings</h1>
+            <hr>
+        </div>
+        <div class="overlay">
+            <img src="images/filter.png" alt="filter">
+            <input type="number" id="filterLimit" name="filterLimit" min="0">
+        </div>
+        <div class="section">
+            <hr>
+            <h1>Manual</h1>
+            <hr>
+        </div>
+        <ul class="info"> Input
+            <li>Input: start record collection</li>
+            <li>Click: swap active input</li>
+            <li>Enter: save record if data cleared</li>
+            <li>Up: previous record</li>
+            <li>Down: next record</li>
+        </ul>
+        <ul class="info"> Logo
+            <li>Click: detach popup</li>
+        </ul>
+        <ul class="info"> List Item
+            <li>Long Press: add/remove from saved records</li>
+            <li>Click: paste into input</li>
+        </ul>
+        <!-- <ul class="info"> Whitelist
+            <li>Youtube live chat</li>
+            <li>Twitch.tv (no filter)</li>
+            <li>ChatGPT</li>
+        </ul> -->
+    </div>
+    <div class="content" id="page4">
+        <div class="section">
+            <hr>
+            <h1>Contact</h1>
+            <hr>
+        </div>
+        <a href="#page4" class="inactive">
+            <img src="images/gmail.png" alt="Gmail">
+            isaiahpan+up@gmail.com
+        </a>
+        <a href="#page4">
+            <img src="images/github.png" alt="Github">
+            zay, remember to make the repo
+        </a>
+    </div>
+    <div class="content" id="page5">
+        <div class="section">
+            <hr>
+            <h1>Support</h1>
+            <hr>
+        </div>
+        <a href="https://ko-fi.com/joblesszay" target="_blank">
+            <img src="https://storage.ko-fi.com/cdn/cup-border.png" alt="Ko-fi">
+            This jobless builder has no talent as a merchant. Please support.
+        </a>
+        <div class="section">
+            <hr>
+            <h1>Updates</h1>
+            <hr>
+        </div>
+        <div id="changeLog"></div>
+    </div>
+    <div class="navbar">
+        <!-- https://www.iconpacks.net/free-icon -->
+        <a href="#page1" class="navbar-item" id="home">
+            <img src="images/home.png" alt="home">
+        </a>
+        <a href="#page2" class="navbar-item" id="filter">
+            <img src="images/filter.png" alt="filter">
+        </a>
+        <a href="#page3" class="navbar-item" id="settings">
+            <img src="images/settings.png" alt="settings">
+        </a>
+        <a href="#page4" class="navbar-item" id="contact">
+            <img src="images/mail.png" alt="mail">
+        </a>
+        <a href="#page5" class="navbar-item" id="support">
+            <img src="images/support.png" alt="support">
+        </a>
+    </div>
+    <script src="js/popup.js"></script>
+</body>
+
+</html>

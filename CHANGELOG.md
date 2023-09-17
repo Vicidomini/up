@@ -2,6 +2,15 @@
 
 ## [Unreleased] - 2023-09-14
 
+- Created git repo
+- Added README.md
+- Added screenshots
+- Removed recall demo content
+- Fixed first load with multi-frame (timestamp)
+- Fixed filter limiter (0 resolving as false)
+
+## [Unreleased] - 2023-09-14
+
 - Modified focus to only if content was pasted
 - Updated logic for youtube replay 
 

@@ -16,10 +16,14 @@ Input recall for chat
 2. Click on any list item once to paste it into the chat field
 
 ### save
-<img src="images/demo-save-01.png" align="center" />
+<div align="center">
+    <img src="images/demo-save-01.png" align="center" />
+</div>
 <div align="center">
     <img src="images/demo-save-02.png" width="300" /><img src="images/demo-save-03.png" width="300" />
 </div>
 
 ### filter
-<img src="images/demo-filter-01.png" width="300" />&nbsp<img src="images/demo-filter-02.png" width="300" />
+<div align="center">
+    <img src="images/demo-filter-01.png" width="300" /><br /><img src="images/demo-filter-02.png" width="300" />
+</div>

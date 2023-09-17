@@ -1,4 +1,4 @@
-# up
+# UP
 Input recall for chat
 - youtube
 - twitch
@@ -17,6 +17,7 @@ Input recall for chat
 3. The item will be pasted into that field 
 
 ### Save your input
+![](images/demo-save-01.png){: width="300px" align="left"} ![](images/demo-save-02.png){: width="300px" align="center"} ![](images/demo-save-03.png){: width="300px" align="right"}
 <img src="images/demo-save-01.png" width="200" />   <img src="images/demo-save-02.png" width="200" />   <img src="images/demo-save-03.png" width="200" />
 
 ### Filter

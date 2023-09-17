@@ -129,7 +129,7 @@ class ULControl {
             return; // still within the window
         }
         const iter = this.contentLiMap.entries()
-        while (this.contentLiMap.size > this.limit) {
+        while (this.limit && this.contentLiMap.size > this.limit) {
             const [key, val] = iter.next().value;
             this.contentLiMap.delete(key);
             this.bucket.remove(val);
@@ -356,18 +356,18 @@ lists.history.subs = lists.pinned;
 lists.history.UL.order = "descending";
 lists.filter.subs = lists.pinned;
 lists.filter.UL.order = "bucket";
-lists.filter.UL.limit = 99;
 
 const filterLimit = document.getElementById('filterLimit');
 chrome.storage.local.get(['filterLimit'], function (data) {
-    filterLimit.value = data.filterLimit || 99;
-    lists.filter.UL.limit = filterLimit.value
+    const number = parseFloat(data.filterLimit);
+    filterLimit.value = number ?? 99;
+    lists.filter.UL.limit = number;
 });
 filterLimit.addEventListener('input', function () {
     const number = parseFloat(filterLimit.value);
     if (!isNaN(number)) {
         chrome.storage.local.set({ 'filterLimit': number });
-        lists.filter.UL.limit = filterLimit.value
+        lists.filter.UL.limit = number;
     }
 });
 
@@ -415,7 +415,7 @@ const fromCScript = (port) => {
                 return;
             case "pasted":
                 chrome.windows.update(port.sender.tab.windowId, { focused: true }, () => { });
-                return; 
+                return;
         }
     });
     port.onDisconnect.addListener(() => {

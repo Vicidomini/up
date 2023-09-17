@@ -4,26 +4,30 @@ Input recall for chat
 - twitch
 - chatGPT
 
-### How to use
+## Example
 1. Click/input in the chat field to apply new functionality
+2. Type "hello world"
+<img src="images/demo-save-01.png" />
+3. Press enter, "hello world" is saved upon submission
 
 ### up
-1. When an input is removed with enter, it is added to your recall history
-2. Press up in the chat field to get previously typed input
+1. Press up in the chat field to get "hello world"
 
 ### paste
 1. Open the extension
-2. Click on any list item once to paste it into the chat field
+2. Click on "hello world" to paste it into the chat field
 
 ### save
-<div align="center">
-    <img src="images/demo-save-01.png" align="center" />
-</div>
-<div align="center">
-    <img src="images/demo-save-02.png" width="300" /><img src="images/demo-save-03.png" width="300" />
-</div>
+<img src="images/demo-save-02.png" width="300" />
+1. Long press "hello world" to add it to saved
+<img src="images/demo-save-03.png" width="300" />
+2. Any input with UP can now access this with key up or paste
 
-### filter
-<div align="center">
-    <img src="images/demo-filter-01.png" width="300" /><br /><img src="images/demo-filter-02.png" width="300" />
-</div>
+### filter for youtube
+<img src="images/demo-filter-01.png" width="300" />
+<img src="images/demo-filter-02.png" width="300" />
+1. Chat sorted by the latest of the most commented 
+
+## Settings
+### Filter
+1. Chat list length, 0 to remove limit

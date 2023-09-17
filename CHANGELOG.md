@@ -1,6 +1,6 @@
 # Changelog
 
-## [Unreleased] - 2023-09-14
+## [Unreleased] - 2023-09-16
 
 - Created git repo
 - Added README.md
@@ -9,7 +9,7 @@
 - Fixed first load with multi-frame (timestamp)
 - Fixed filter limiter (0 resolving as false)
 
-## [Unreleased] - 2023-09-14
+## [Unreleased] - 2023-09-15
 
 - Modified focus to only if content was pasted
 - Updated logic for youtube replay 

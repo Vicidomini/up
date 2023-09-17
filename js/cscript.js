@@ -25,6 +25,7 @@ const quarry = {
             popup.connect();
         }
     },
+    created: new Date(),
     setCaratToEnd(element) {
         if (element.type !== "textarea" && element.contentEditable) {
             element.focus();
@@ -94,7 +95,7 @@ const setupTwitch = (subdomain) => {
 }
 const setupDefault = (subdomain) => { }
 
-const historyDemo = [" 1 ", ` 2 `, ` 3 `, window.location.search || window.location.pathname];
+const historyDemo = [];
 
 const setRecall = (tgt) => {
     const attrType = getAttrType(tgt)
@@ -203,7 +204,7 @@ const popup = {
                             port.postMessage({ history: h, timestamp: t });
                         });
                     } else {
-                        port.postMessage({ history: [], timestamp: new Date() });
+                        port.postMessage({ history: [], timestamp: quarry.created });
                     }
                     runOnce(step2);
                     return true;

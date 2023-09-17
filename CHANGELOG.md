@@ -2,8 +2,10 @@
 
 ## [Unreleased] - 2023-09-16
 
+- Submitted for review
 - Created git repo
 - Added README.md
+- Added NOTES.md
 - Added screenshots
 - Removed recall demo content
 - Fixed first load with multi-frame (timestamp)

@@ -356,6 +356,7 @@ lists.history.subs = lists.pinned;
 lists.history.UL.order = "descending";
 lists.filter.subs = lists.pinned;
 lists.filter.UL.order = "bucket";
+lists.filter.UL.limit = 99;
 
 const filterLimit = document.getElementById('filterLimit');
 chrome.storage.local.get(['filterLimit'], function (data) {

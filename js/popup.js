@@ -356,12 +356,16 @@ lists.history.subs = lists.pinned;
 lists.history.UL.order = "descending";
 lists.filter.subs = lists.pinned;
 lists.filter.UL.order = "bucket";
-lists.filter.UL.limit = 99;
+
 
 const filterLimit = document.getElementById('filterLimit');
 chrome.storage.local.get(['filterLimit'], function (data) {
-    const number = parseFloat(data.filterLimit);
-    filterLimit.value = number ?? 99;
+    let number = 99;
+    if (data.filterLimit) {
+        number = parseFloat(data.filterLimit);
+        
+    } 
+    filterLimit.value = number;
     lists.filter.UL.limit = number;
 });
 filterLimit.addEventListener('input', function () {

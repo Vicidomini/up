@@ -49,6 +49,36 @@ body {
     display: block;
 }
 
+
+.content a {
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    margin-bottom: 18px;
+    text-decoration: none;
+    color: inherit;
+    font-weight: inherit;
+}
+
+.content a img {
+    height: 48px;
+    padding-right: 12px;
+}
+
+@media screen and (max-width: 350px) {
+    .content a {
+        flex-direction: column;
+        padding: 0 12px;
+        align-items: flex-start;
+    }
+    .content a img {
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 12px;
+        padding-right: unset;
+    }
+}
+
 .section {
     margin: 12px 10px 12px 10px;
 
@@ -230,36 +260,6 @@ hr {
     z-index: 9999;
 }
 
-.content a {
-    display: flex;
-    align-items: center;
-    padding: 0 30px;
-    margin-bottom: 18px;
-    text-decoration: none;
-    color: inherit;
-    font-weight: inherit;
-}
-
-.content a img {
-    height: 48px;
-    padding-right: 12px;
-}
-
-@media screen and (max-width: 350px) {
-    .content a {
-        flex-direction: column;
-        padding: 0 12px;
-        align-items: flex-start;
-    }
-    .content a img {
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 12px;
-        padding-right: unset;
-    }
-}
-
-
 .inactive {
     pointer-events: none;
     cursor: default;
@@ -327,12 +327,19 @@ input[type=number]::-webkit-inner-spin-button {
 
 
 #changeLog {
-    position: relative;
+    display: grid;
+    grid-template-areas: "log";
+}
+
+#changeLog .md {
+    grid-area: log;
     padding: 0 12px 24px;
     margin: 0 12px 12px;
     background: rgba(255, 255, 255, 0.1);
     border-top: 1px solid rgba(141, 110, 200, 1);
     border-bottom: 1px solid rgba(141, 110, 200, 1);
+    word-wrap: break-word; 
+    overflow-x: hidden;
 }
 
 #changeLog ul {

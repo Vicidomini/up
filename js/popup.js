@@ -552,8 +552,11 @@ fetch(`https://raw.githubusercontent.com/Vicidomini/up/main/CHANGELOG.md`)
         }).then(data => {
             let cL = document.getElementById("changeLog");
             // const formattedContent = data?.replace(/\n/g, '<br>')?.replace(/    /g, '&nbsp;&nbsp;&nbsp;&nbsp;');
-            const formattedContent = markdownParser(data)
-            cL.innerHTML = formattedContent;
+            const formattedContent = markdownParser(data);
+            var newDiv = document.createElement('div');
+            newDiv.className = "md"
+            newDiv.innerHTML = formattedContent;
+            cL.insertBefore(newDiv, cL.firstChild);
         });
     })
     .catch(e => console.log("[UP] error", e))

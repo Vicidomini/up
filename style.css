@@ -328,9 +328,15 @@ input[type=number]::-webkit-inner-spin-button {
 
 #changeLog {
     position: relative;
-    padding: 12px;
+    padding: 0 12px 24px;
     margin: 0 12px 12px;
     background: rgba(255, 255, 255, 0.1);
     border-top: 1px solid rgba(141, 110, 200, 1);
     border-bottom: 1px solid rgba(141, 110, 200, 1);
+}
+
+#changeLog ul {
+    padding: 0;
+    padding-left: 1em;
+    margin: 0;
 }

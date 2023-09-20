@@ -296,7 +296,7 @@ class List {
 
     async read() {
         const local = await chrome.storage[this.type].get(this.key)
-        local[this.key].forEach(key => {
+        local[this.key]?.forEach(key => {
             this.add(key);
         });
     }

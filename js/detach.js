@@ -1,7 +1,10 @@
 const windowId = Number(new URLSearchParams(location.search).get('windowId'));
 
 function callback(res) {
-    if (chrome.runtime.lastError) { return }
+    if (chrome.runtime.lastError) { 
+        chrome.action.setPopup({ popup: "popup.html" });
+        return;
+    }
 }
 
 const views = chrome.extension.getViews({ type: "popup" });

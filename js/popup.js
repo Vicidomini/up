@@ -363,8 +363,8 @@ chrome.storage.local.get(['filterLimit'], function (data) {
     let number = 99;
     if (data.filterLimit) {
         number = parseFloat(data.filterLimit);
-        
-    } 
+
+    }
     filterLimit.value = number;
     lists.filter.UL.limit = number;
 });
@@ -485,11 +485,75 @@ document.getElementById("toplogo").addEventListener("click", async () => {
 });
 
 
-fetch('CHANGELOG.md')
-    .then(response => response.text())
-    .then((data) => {
-        let cL = document.getElementById("changeLog");
-        const formattedContent = data?.replace(/\n/g, '<br>')?.replace(/    /g, '&nbsp;&nbsp;&nbsp;&nbsp;');
-        cL.innerHTML = formattedContent;
+const markdownParser = (text) => {
+    const lines = text.split('\n');
+    const li = new Set(['-', '*', '+']);
+
+    text = ""
+    let space = 0;
+    let ulLevel = 0;
+    for (const line of lines) {
+        const trimmed = line.trimStart();
+        const wsCount = line.length - trimmed.length;
+        const index = trimmed.indexOf(" ");
+        const marker = trimmed.slice(0, index);
+
+        if (ulLevel && !li.has(marker)) {
+            do {
+                text += "</ul>"
+            } while (--ulLevel)
+            space = 0;
+        }
+
+        switch (marker) {
+            case "#":
+                text += `<h2>${trimmed.slice(index + 1)}</h2>`
+                break;
+            case "##":
+                text += `<h3>${trimmed.slice(index + 1)}</h3>`
+                break;
+            case "###":
+                text += `<h4>${trimmed.slice(index + 1)}</h4>`
+                break;
+            case "-":
+            case "*":
+            case "+":
+                if (!ulLevel) {
+                    text += "<ul>"
+                    ulLevel++;
+                } else if (space < wsCount) {
+                    space = wsCount
+                    text += "<ul>"
+                    ulLevel++;
+                } else if (space > wsCount) {
+                    space = wsCount
+                    text += "</ul>"
+                    ulLevel--;
+                }
+                text += `<li>${trimmed.slice(index + 1)}</li>`
+                break;
+            default:
+                break;
+        }
+    }
+    return text;
+}
+
+fetch(`https://raw.githubusercontent.com/Vicidomini/up/main/CHANGELOG.md`)
+    .then(response => response.body)
+    .then((stream) => {
+        const reader = stream.getReader();
+        const textDecoder = new TextDecoder();
+        let data = "";
+        reader.read().then(function pump({ done, value }) {
+            if (done) return data;
+            data += textDecoder.decode(value, { stream: true });;
+            return reader.read().then(pump);
+        }).then(data => {
+            let cL = document.getElementById("changeLog");
+            // const formattedContent = data?.replace(/\n/g, '<br>')?.replace(/    /g, '&nbsp;&nbsp;&nbsp;&nbsp;');
+            const formattedContent = markdownParser(data)
+            cL.innerHTML = formattedContent;
+        });
     })
     .catch(e => console.log("[UP] error", e))

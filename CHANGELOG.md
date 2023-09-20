@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.0.1] - 2023-09-20
+- Basic fixes
+    * default filter size
+    * fallback to restore default popup
+    * check ∃ saved before using
+- Changelog now pulls from github
+
+## [1.0.0] - 2023-09-18
+- https://chrome.google.com/webstore/detail/up/hafapdbdpdcbamdmdmekggfcbahigmki
+
 ## [Unreleased] - 2023-09-16
 
 - Submitted for review
